@@ -104,7 +104,7 @@
 			    		<h3 class="panel-title">STUDENT REGISTIRATION</h3>
 			 			</div>
 			 			<div class="panel-body">
-			    		<form role="form">
+			    		<form role="form" action="../controler/studentregistration.php" method="post">
 			    			<div class="row">
 			    				<div class="col-xs-6 col-sm-6 col-md-6">
 			    					<div class="form-group">

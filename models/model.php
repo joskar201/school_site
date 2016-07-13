@@ -12,16 +12,26 @@ function connect(){
 	} 
 	return $conn;	
 }
-function validate_student($name_from_user,$adm_from_user,$a){
+function validate_student($name_from_user,$adm_from_user,$passfromuser,$a){
 	$sql="SELECT * FROM Student WHERE AdmNumber=$adm_from_user";
 	$result=$a->query($sql);
 	$row = $result->fetch_assoc();
-	if($row["Name"]==$name_from_user){
-		return true;
-	}
-	else{
+	if ($row["Name"]==$name_from_user) {
+		if ($row["AdmNumber"]==$adm_from_user) {
+			if ($row["password"]==$passfromuser) {
+				return true;
+			} else {
+				return false;
+			}
+			
+		} else {
+			return false;
+		}
+		
+	} else {
 		return false;
 	}
+	
 }
 function get_all_news($a){
 	$sql="SELECT * FROM News";
@@ -53,6 +63,16 @@ function get_staff($a){
 function add_contact($firsname,$lastname,$email,$phone,$address,$city,$message,$a){
 	$sql="insert into contacts(first_name,last_name,email,phone,adress,town,message) values('$firsname','$lastname','$email','$phone','$address','$city','$message')";
 	$result=$a->query($sql);
+}
+function Register_student($firsname,$lastname,$email,$regno,$password,$a){
+	$sql="insert into Student(Name,AdmNumber,email,password) values('$firsname','$regno','$email','$password')";
+    $result=$a->query($sql);
+    if (!$result) {
+    	return true;
+    	} else {
+    	 	return false;
+    	}
+
 }
  $b=connect();
 // validate_student("joshua",4195,$b);

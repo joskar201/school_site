@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+<php
+ <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -99,7 +100,8 @@
                  color: #ffffff;
           }
       </style>
-      <p>Don't have an account yet?<br><a href="register.php"><span style="color:green">Register Here</span></a></p>
+      <p style="color:red"></style>Login failed! Try again.</p>
+      <p>Don't have an account yet?<br><a href="register.php"><span>Register Here</span></a></p>
     </form>
   </div>
     
@@ -169,3 +171,5 @@
     
   </body>
 </html>
+
+?>
